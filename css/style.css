@@ -1,0 +1,420 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#343434;
+    --secondary-color: #ffffff;
+    --third-color: #1c1c1c;
+    --gray:#5b5b5b;
+    --transition-duration: .5s;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: var(--primary-color);
+    scroll-behavior: smooth;
+}
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    transition: opacity 0.75s, visibility 0.75s;
+}
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+.loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: var(--third-color);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+h1, h2, h3, h4, h5, h6, .logo{
+    font-family: "Montserrat", sans-serif;
+}
+p{
+    color: #748182;
+    line-height: 1.6;
+    font-size: 15px;
+}
+a{
+    all: unset;
+}
+ul{
+    list-style: none;
+}
+b{
+    font-weight: 700;
+}
+.container{
+    width: 85% !important;
+}
+header .container{
+    width: 100% !important;
+}
+/* -----------------------------------------------------------NavBar----------------------------------------------------------------------- */
+nav{
+    transition: all var(--transition-duration) ease-in-out;
+}
+nav .logo{
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+nav ul li{
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 15px;
+}
+nav ul li a{
+    position: relative;
+
+}
+nav ul li a::after{
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width var(--transition-duration);
+}
+nav ul li a.active::after{
+    width: 80%;
+}
+.toggler{
+    display: none;
+}
+.nav-scroll a{
+    color: var(--third-color) !important;
+    margin: 0 !important;
+}
+.nav-scroll{
+    background: var(--secondary-color) !important;
+}
+.nav-scroll a::after{
+    background-color: var(--third-color);
+}
+.nav-scroll ul{
+    margin-top: 0 !important;
+}
+.navbar li.nav-item.active a::after{
+    visibility: visible;
+    width: 80%;
+}
+/* -----------------------------------------------------------HomeSection----------------------------------------------------------------------- */
+header{
+    background-image: url(../imgs/bg.jpg);
+    background-position: 0px 0px;
+    background-size: cover;
+}
+.home-content{
+    margin-top: 12vh;
+}
+section.home .home-content h5{
+    font-weight: 800;
+    font-size: 50px;
+}
+section.home .home-content h1{
+    font-size: 4rem;
+}
+.home-social li a i{
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/* -----------------------------------------------------------AboutSection----------------------------------------------------------------------- */
+
+section.about .row .about-img::before{
+    content: "";
+    position: absolute;
+    left: -30px;
+    bottom: -30px;
+    width: 80%;
+    height: 80%;
+    background-image: url(../imgs/dots.png);
+    background-repeat: repeat;
+    z-index: -1;
+}
+section.about h3{
+    font-weight: 800;
+}
+section.about span{
+    letter-spacing: 2px;
+}
+section.about .progress{
+   height: auto;
+   box-shadow: inset 0px 2px 7px rgba(0, 0, 0, 0.15);
+}
+.progress .progress-bar{
+    background-color: var(--third-color);
+}
+.progress .progress-bar::after{
+    position: absolute;
+    right: 10px;
+    content: attr(data-value);
+}
+.progress .progress-bar h6{
+    font-size: 13px;
+}
+.about-btns button a{
+    font-size: 13px;
+    transition:all var(--transition-duration);
+}
+.about-btns button.download{
+    background-color: var(--third-color);
+    transition:all var(--transition-duration);
+}
+.about-btns button.download:hover{
+    background-color: transparent;
+    border: 1px solid var(--third-color);
+   
+}
+.about-btns button.download:hover a{
+    color: var(--third-color);
+}
+.about-btns button.con:hover{
+    background-color: var(--third-color);
+}
+.about-btns button.con{
+    transition:all var(--transition-duration);
+}
+.about-btns button.con:hover a{
+    color: var(--secondary-color);
+}
+/* -----------------------------------------------------------ServiceSection----------------------------------------------------------------------- */
+.header h3{
+    font-weight: 900;
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.header h3::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url(../imgs/dots.png);
+    background-repeat: repeat;
+    z-index: -1;
+}
+.card-icon{
+    width: 70px;
+    height: 70px;
+    transition: all var(--transition-duration);
+}
+.card-body h6{
+    font-size: 18px;
+    font-weight: 800;
+}
+.card-body p{
+    word-spacing: 2px;
+}
+section.services .card:hover .card-icon{
+    background-color: var(--third-color) !important;
+}
+section.services .card:hover .card-icon i{
+    color: #f4f4f4;
+}
+/* -----------------------------------------------------------WorkSection----------------------------------------------------------------------- */
+section.works .work-body ul li a{
+    color: var(--third-color);
+    font-weight: 700;
+    
+}
+.card-overlay{
+    bottom:5px;
+    right: 5px ;
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+    transition: all var(--transition-duration);
+}
+section.works .card:hover .card-overlay{
+    opacity: 1;
+}
+section.works .card:hover .overlay-caption h6{
+    transform: translateY(0);
+}
+section.works .card:hover .overlay-caption .icons{
+    transform: translateY(0);
+}
+.overlay-caption h6{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transform: translateY(-15px);
+    transition: all var(--transition-duration);
+}
+.overlay-caption .icons{
+    transform: translateY(15px);
+    transition: all var(--transition-duration);
+}
+.overlay-caption .icons i{
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: var(--third-color);
+    color: #eeeeee;
+}
+.overlay-caption .icons i:hover{
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+    border: 1px solid var(--third-color);
+}
+/* -----------------------------------------------------------ClientSection----------------------------------------------------------------------- */
+.carousel-inner img{
+    width: 100px;
+    height: 100px;
+}
+.client-body{
+    width: 80%;
+    margin: auto;
+}
+.client-body p{
+    word-spacing: 2px;
+}
+.client-body h6{
+    font-weight: 600;
+}
+.client-body span{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray);
+}
+.carousel-indicators button{
+    width: 12px !important;
+    height: 12px !important;
+    background-color: var(--gray) !important;
+}
+/* -----------------------------------------------------------CounterSection----------------------------------------------------------------------- */
+.count-body h3{
+    font-weight: 900;
+    color: var(--third-color);
+}
+.count-body i{
+    color: var(--third-color);
+}
+.count-body p{
+    font-weight: 600;
+}
+/* -----------------------------------------------------------TeamSection----------------------------------------------------------------------- */
+section.team .team-body .card-body{
+    background-color: var(--gray);
+    color: var(--secondary-color);
+}
+.team-overlay{
+    bottom:5px;
+    right: 5px ;
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+    transition: all var(--transition-duration);
+    cursor: pointer;
+    transform: rotateY(180deg) scale(0.5, 0.5);
+}
+.team-icons i{
+    width: 40px;
+    height: 40px;
+    color: var(--secondary-color);
+    background-color: var(--third-color);
+    line-height: 40px;
+    border-radius: 50%;
+    transition: var(--transition-duration);
+}
+.team-icons i:hover{
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+    border: 1px solid var(--third-color);
+}
+section.team .team-body .card:hover .team-overlay{
+    transform: rotateY(0deg) scale(1, 1);
+    opacity: 1;
+    z-index: 1;
+}
+section.team .team-body .card .team-img img{
+    transition: var(--transition-duration);
+}
+section.team .team-body .card .team-img:hover img{
+    transform: scale(1.2);
+}
+/* -----------------------------------------------------------ContactSection----------------------------------------------------------------------- */
+section.contact .card i{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    transition: var(--transition-duration);
+    background-color: #f4f4f4;
+}
+section.contact .card i:hover{
+    color: #f4f4f4;
+    background-color: var(--third-color) !important;
+}
+.contact form :is(input , textarea):focus{
+    outline: none;
+}
+textarea{
+    max-height: 160px;
+    background-color: #f4f4f4;
+}
+input{
+    background-color: #f4f4f4;
+}
+.contact-btn button{
+    background-color: var(--third-color);
+    color: #f4f4f4;
+    font-size: 13px;
+    transition: all var(--transition-duration);
+}
+.contact-btn button:hover{
+    border: 1px solid var(--third-color);
+}
+/* -----------------------------------------------------------Footer----------------------------------------------------------------------- */
+footer{
+    background-color: var(--third-color);
+}
+footer p{
+    word-spacing: 2px;
+    font-size: 13px;
+}
+footer p a{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: var(--transition-duration);
+}
+footer p a:hover{
+    color: var(--secondary-color);
+}
+/* ------------------------------------------------------------KeyFrames------------------------------------------------------------------- */
+@keyframes loading {
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
